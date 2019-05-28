@@ -5,14 +5,13 @@ import store from './store';
 import jwt_decode from 'jwt-decode';
 import setAuthToken from './setAuthToken';
 import { setCurrentUser, logoutUser } from './actions/authentication';
-import Loadable from 'react-loadable';
 
-import Loader from './components/Loader';
 import Navbar from './components/Navbar';
 import Register from './components/Register';
 import Login from './components/Login';
 import Footer from './components/Footer'
 import Entry from './components/Entry'
+import List from './components/List'
 import Archive from './components/Archive'
 import Post from './components/Post'
 
@@ -31,26 +30,22 @@ if(localStorage.jwtToken) {
   }
 }
 
-const Main = Loadable({
-    loader: () => import('./components/Front'),
-    loading: Loader,
-  });
-
 class App extends Component {
   render() {
     return (
       <Provider store = { store }>
         <Router>
             <div>
+              <Navbar />
               <Route exact path="/" component={ Archive } />
-                <div className="container">
-                    <Main />
-                    <Route exact path="/register" component={ Register } />
-                    <Route exact path="/login" component={ Login } />
-                    <Route exact path="/archive" component={ Archive } />
-                    <Route exact path="/entry" component={ Entry } />
-                    <Route exact path="/post" component={ Post } />
-                </div>
+              <div className="container">
+                <Route exact path="/register" component={ Register } />
+                <Route exact path="/login" component={ Login } />
+                <Route exact path="/archive" component={ Archive } />
+                <Route exact path="/entry" component={ Entry } />
+                <Route exact path="/post" component={ Post } />
+              </div>
+              <Footer />
             </div>
           </Router>
         </Provider>

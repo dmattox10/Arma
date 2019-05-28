@@ -7,132 +7,118 @@
 }
 
 body {
-  margin: 0;
-  padding-bottom: 80px;
-  font-family: sans-serif;
+  background:#222222;
+}
+
+.loader .container {
+  height: 100vh;
   display: flex;
-  flex-direction: column;
-  background: #bdc3c7; /* fallback for old browsers */
-  background: -webkit-linear-gradient(to right, #2c3e50, #292b2c); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, #2c3e50, #292b2c); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  line-height: 0.9;
+  justify-content: center;
+  align-items: center;
 }
 
-.main {
-  padding-top: 1em;
-  margin-bottom: 54px;
+.loader .row {
+  display: flex;
+  justify-content: center;
 }
 
-.main .title {
-  color: #fff;
-  background: #2C75FF;
-  text-align: center;
-  font-weight: 700;
-  line-height: 1.2em;
-  padding: 1em;
-}
-
-.sticky-nav {
-  position: sticky;
-  top: 0;
-  z-index: 999;
-}
-
-.footer {
-  flex-shrink: 0;
-  padding-top: 60px;
-  line-height: 1;
-}
-
-p { color: #2C75FF  !important; }
-
-.section {
-  position: relative;
-  width: 100%;
-  border-bottom: 2px solid #2C75FF;
-  border-top: 2px solid #2C75FF;
-  border-left: 8px solid #2C75FF;
-  border-right: 8px solid #2C75FF;
-  border-radius: 12px;
-}
-.section button {
-  position: absolute;
-  right: 0;
-  margin: 0;
-  padding: 0;
-  height: 3em;
-  width: 3em;
-  outline: 0;
-  border: 0;
-  background: none;
-  text-indent: -9999%;
-  pointer-events: none;
-}
-
-.section button:before {
-  content: '';
-  display: block;
-  position: absolute;
-  height: 12px;
-  width: 4px;
-  border-radius: .3em;
-  background: #2C75FF;
-  transform-origin: 50%;
-  top: 50%;
-  left: 50%;
-  transition: all .25s ease-in-out;
-  transform: translate(75%, -50%) rotate(45deg);
-}
-.section button:after {
-  content: '';
-  display: block;
-  position: absolute;
-  height: 12px;
-  width: 4px;
-  border-radius: .3em;
-  background: #2C75FF;
-  transform-origin: 50%;
-  top: 50%;
-  left: 50%;
-  transition: all .25s ease-in-out;
-  transform: translate(-75%, -50%) rotate(-45deg);
-}
-
-.section.open button:before, .section.open button:after {
-  height: 14px;
-}
-.section.open button:before {
-  transform: translate(0%, -50%) rotate(-45deg);
-}
-.section.open button:after {
-  transform: translate(0%, -50%) rotate(45deg);
-}
-
-.section.open .articlewrap {
-  height: 120px;
-}
-
-.articlewrap {
+.triangle {
+  margin: 0 -7.5px 0 -7.5px;
+  width: 0;
   height: 0;
-  overflow: hidden;
-  transition: all .2s ease-in;
+  border-left: 15px solid transparent;
+  border-right: 15px solid transparent;
+  border-bottom: 25.98px solid;
+  border-bottom-color: #66ff33;
+  animation-name: pulse;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+  filter: drop-shadow(0 0 22.5px #66ff33);
+}
+.triangle.down {
+  transform: rotate(180deg);
+}
+.triangle.outer-1 {
+  animation-delay: -0.0555555556s;
+}
+.triangle.outer-2 {
+  animation-delay: -0.1111111111s;
+}
+.triangle.outer-3 {
+  animation-delay: -0.1666666667s;
+}
+.triangle.outer-4 {
+  animation-delay: -0.2222222222s;
+}
+.triangle.outer-5 {
+  animation-delay: -0.2777777778s;
+}
+.triangle.outer-6 {
+  animation-delay: -0.3333333333s;
+}
+.triangle.outer-7 {
+  animation-delay: -0.3888888889s;
+}
+.triangle.outer-8 {
+  animation-delay: -0.4444444444s;
+}
+.triangle.outer-9 {
+  animation-delay: -0.5s;
+}
+.triangle.outer-10 {
+  animation-delay: -0.5555555556s;
+}
+.triangle.outer-11 {
+  animation-delay: -0.6111111111s;
+}
+.triangle.outer-12 {
+  animation-delay: -0.6666666667s;
+}
+.triangle.outer-13 {
+  animation-delay: -0.7222222222s;
+}
+.triangle.outer-14 {
+  animation-delay: -0.7777777778s;
+}
+.triangle.outer-15 {
+  animation-delay: -0.8333333333s;
+}
+.triangle.outer-16 {
+  animation-delay: -0.8888888889s;
+}
+.triangle.outer-17 {
+  animation-delay: -0.9444444444s;
+}
+.triangle.outer-18 {
+  animation-delay: -1s;
+}
+.triangle.inner-1 {
+  animation-delay: -0.1666666667s;
+}
+.triangle.inner-2 {
+  animation-delay: -0.3333333333s;
+}
+.triangle.inner-3 {
+  animation-delay: -0.5s;
+}
+.triangle.inner-4 {
+  animation-delay: -0.6666666667s;
+}
+.triangle.inner-5 {
+  animation-delay: -0.8333333333s;
+}
+.triangle.inner-6 {
+  animation-delay: -1s;
 }
 
-.sectionhead {
-  width: 100%;
-  overflow: hidden;
-  
-  cursor: pointer;
-  font-weight: 700;
-  color: #fff;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  padding: 1em;
-  padding-right: 2.1em;
-}
-
-.article {
-  padding: 1em;
-  color: #333;
-  line-height: 1.3;
+@keyframes pulse {
+  0% {
+    opacity: 0.1;
+  }
+  33% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.1;
+  }
 }
