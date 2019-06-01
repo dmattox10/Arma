@@ -8,15 +8,9 @@ import { setCurrentUser, logoutUser } from './actions/authentication';
 import Loadable from 'react-loadable';
 
 import Loader from './components/Loader';
-import Navbar from './components/Navbar';
-import Register from './components/Register';
 import Login from './components/Login';
-import Footer from './components/Footer'
-import Entry from './components/Entry'
-import Archive from './components/Archive'
-import Post from './components/Post'
+import Nav from './components/Nav'
 
-import 'bootstrap/dist/css/bootstrap.min.css';
 import './index.css'
 
 if(localStorage.jwtToken) {
@@ -41,16 +35,14 @@ class App extends Component {
     return (
       <Provider store = { store }>
         <Router>
-            <div>
-              <Route exact path="/" component={ Archive } />
-                <div className="container">
-                    <Main />
-                    <Route exact path="/register" component={ Register } />
-                    <Route exact path="/login" component={ Login } />
-                    <Route exact path="/archive" component={ Archive } />
-                    <Route exact path="/entry" component={ Entry } />
-                    <Route exact path="/post" component={ Post } />
-                </div>
+            <div className='main'>
+              <hr />
+              <Nav />
+              <div className='content'>
+                <hr />
+                <Route exact path="/" component={ Main } />
+                <Route exact path="/login" component={ Login } />
+              </div>
             </div>
           </Router>
         </Provider>
